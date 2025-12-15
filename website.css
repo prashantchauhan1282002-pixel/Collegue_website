@@ -1,0 +1,344 @@
+/* ---------------------------------- */
+/* 1. CSS Custom Properties & Reset */
+/* ---------------------------------- */
+:root {
+    --primary-color: #004d99; /* Deep University Blue */
+    --secondary-color: #ff9900; /* Bright Orange/Gold Accent */
+    --text-color: #333;
+    --light-text: #666;
+    --white-color: #ffffff;
+    --background-light: #f4f7f6;
+    --spacing-lg: 40px;
+    --spacing-md: 20px;
+    --shadow-subtle: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --border-radius: 8px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-light);
+    scroll-behavior: smooth;
+}
+
+/* Base Styling for Links and Buttons */
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s;
+}
+
+/* ---------------------------------- */
+/* 2. Header and Navigation (Flexbox) */
+/* ---------------------------------- */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px var(--spacing-lg);
+    background-color: var(--white-color);
+    box-shadow: var(--shadow-subtle);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo h1 {
+    font-size: 1.5em;
+    color: var(--primary-color);
+}
+
+.main-nav a {
+    margin-left: var(--spacing-md);
+    font-weight: 500;
+    color: var(--light-text);
+}
+
+.main-nav a:hover {
+    color: var(--primary-color);
+}
+
+/* ---------------------------------- */
+/* 3. CTA Button Styles (Re-usable) */
+/* ---------------------------------- */
+.cta-button {
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.cta-button.primary {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.cta-button.primary:hover {
+    background-color: #003366;
+    transform: translateY(-2px);
+}
+
+.cta-button.secondary {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.cta-button.secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.cta-button.large {
+    padding: 15px 30px;
+    font-size: 1.1em;
+}
+
+
+/* ---------------------------------- */
+/* 4. Hero Section */
+/* ---------------------------------- */
+.hero-section {
+    background-image: linear-gradient(rgba(0, 77, 153, 0.6), rgba(0, 77, 153, 0.6)), url('placeholder-campus-image.jpg'); /* Placeholder image */
+    background-size: cover;
+    background-position: center;
+    color: var(--white-color);
+    padding: 100px var(--spacing-lg);
+    text-align: center;
+}
+
+.hero-content h2 {
+    font-size: 3em;
+    margin-bottom: var(--spacing-md);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    max-width: 700px;
+    margin: 0 auto 40px;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-md);
+}
+
+
+/* ---------------------------------- */
+/* 5. Feature Grid (CSS Grid) */
+/* ---------------------------------- */
+.features-section {
+    padding: var(--spacing-lg) var(--spacing-lg);
+    text-align: center;
+}
+
+.features-section h2 {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+.feature-grid {
+    display: grid;
+    /* Defines 3 equal columns */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.feature-card {
+    background-color: var(--white-color);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-subtle);
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-bottom: 3px solid var(--secondary-color);
+}
+
+.feature-icon {
+    font-size: 2.5em;
+    color: var(--secondary-color);
+    display: block;
+    margin-bottom: 10px;
+}
+
+.feature-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+
+/* ---------------------------------- */
+/* 6. Programs Section (Flexbox for items) */
+/* ---------------------------------- */
+.programs-section {
+    padding: var(--spacing-lg) var(--spacing-lg);
+    background-color: var(--white-color);
+    text-align: center;
+}
+
+.programs-section h2 {
+    font-size: 2em;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-lg);
+}
+
+.program-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.program-item {
+    flex: 1; /* Allows items to grow/shrink equally */
+    min-width: 250px;
+    max-width: 350px;
+    padding: 25px;
+    border: 1px solid #eee;
+    border-radius: var(--border-radius);
+    text-align: left;
+    transition: border-color 0.3s;
+}
+
+.program-item:hover {
+    border-color: var(--secondary-color);
+}
+
+
+/* ---------------------------------- */
+/* 7. Admissions Banner */
+/* ---------------------------------- */
+.admissions-banner {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 60px var(--spacing-lg);
+    text-align: center;
+}
+
+.banner-content h3 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.banner-content p {
+    font-size: 1.1em;
+    margin-bottom: var(--spacing-md);
+}
+
+
+/* ---------------------------------- */
+/* 8. Footer (CSS Grid) */
+/* ---------------------------------- */
+.main-footer {
+    background-color: #222;
+    color: #ccc;
+    padding: var(--spacing-lg) var(--spacing-lg);
+}
+
+.footer-grid {
+    display: grid;
+    /* Three columns for structure */
+    grid-template-columns: 2fr 1fr 1fr; 
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-grid h4 {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links a {
+    color: #ccc;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.footer-links a:hover {
+    color: var(--secondary-color);
+}
+
+.social-icon {
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+
+/* ---------------------------------- */
+/* 9. Responsiveness (Mobile Optimization) */
+/* ---------------------------------- */
+
+@media (max-width: 900px) {
+    .feature-grid {
+        /* On medium screens, switch to 2 columns */
+        grid-template-columns: repeat(2, 1fr); 
+    }
+    
+    .footer-grid {
+        /* On medium screens, switch to 2 columns */
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Collapse header nav on small screens */
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 15px;
+    }
+
+    .main-nav {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 10px 0;
+        border-top: 1px solid #eee;
+        padding-top: 10px;
+    }
+
+    .main-nav a {
+        margin: 5px 0;
+        text-align: center;
+        padding: 5px 0;
+    }
+    
+    .nav-cta {
+        order: -1; /* Move Apply Now button above navigation on mobile */
+        margin-bottom: 10px;
+    }
+
+    /* Collapse grids to single columns */
+    .feature-grid, .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h2 {
+        font-size: 2.2em;
+    }
+    
+    .hero-actions {
+        flex-direction: column;
+    }
+}
